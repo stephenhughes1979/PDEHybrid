@@ -1,8 +1,8 @@
 var opts = {
   lines: 11, // The number of lines to draw
-  length: 20, // The length of each line
-  width: 10, // The line thickness
-  radius: 30, // The radius of the inner circle
+  length: 10, // The length of each line
+  width: 5, // The line thickness
+  radius: 15, // The radius of the inner circle
   corners: 1, // Corner roundness (0..1)
   rotate: 0, // The rotation offset
   direction: 1, // 1: clockwise, -1: counterclockwise
@@ -13,27 +13,20 @@ var opts = {
   hwaccel: false, // Whether to use hardware acceleration
   className: 'spinner', // The CSS class to assign to the spinner
   zIndex: 2e9, // The z-index (defaults to 2000000000)
-  top: '40px', // Top position relative to parent in px
+  top: '20px', // Top position relative to parent in px
   left: 'auto' // Left position relative to parent in px
 };
 
 var target = document.getElementById('preview');
-var deviceid;
-function onDeviceReady() {
-    if (parseFloat(window.device.version) === 7.0) {
-          document.body.style.marginTop = "15px";
-    }
-    
-    deviceid = device.uuid;
-    debug.log(deviceid);
-    navigator.notification.alert(deviceid, null, "Device id", 'OK');
-}
-  
-document.addEventListener('deviceready', onDeviceReady, false);
 
-$(document).on('pageshow', '#loginPage', function(event) {
-        $.ajaxSetup({ cache: false });
-});
+function acceptTerms() {
+    $('.chkTerms').prop('checked', true);
+    $.mobile.changePage("#loginPage", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+}
 
 function showTermsPage() {
     $.mobile.changePage("#termsPage", {
@@ -43,29 +36,14 @@ function showTermsPage() {
     });
 }
 
-function SearchByZip() {
-    if ($('.textZip').val().trim() != "")
-    {
-        window.localStorage.setItem("zipsearchvalue", $('.textZip').val());
-        $.mobile.changePage( "listview.html", {
-          transition: "slide",
-          reverse: true,
-          changeHash: true
-        });
-    }
-    else
-    {
-        navigator.notification.alert("Please enter a ZipCode value", null, "ZIP Required", 'OK');
-    }
-}
-
 function Login(){
         var spinner = new Spinner(opts).spin(target);
-        
+        var claimnumber = $('.claimnumber').val();
+        alert(device.uuid);
         $.ajax({
             type: "POST",
             cache: false,
-            url:"https://www.bluebadgesolutions.com/services/loginservice.svc/authenticateuser/7854676767/1",
+            url:"https://www.bluebadgesolutions.com/services/loginservice.svc/authenticateuser/" + claimnumber + "/1",
             contentType: "application/x-www-form-urlencoded",
             beforeSend: function (xhr) {
                     xhr.setRequestHeader('EstimatorDeviceId', '53423547890');
@@ -83,7 +61,7 @@ function Login(){
                 $.ajax({
                     type: "POST",
                     cache: false,
-                    url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/getestimaterequestsbyclaimnumber/7854676767/1",
+                    url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/getestimaterequestsbyclaimnumber/" + claimnumber + "/1",
                     contentType: "application/json; charset=utf-8",
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader('EstimatorDeviceId', '53423547890');

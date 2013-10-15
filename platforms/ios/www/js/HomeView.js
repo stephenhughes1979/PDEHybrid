@@ -35,6 +35,15 @@ $(document).on('pageshow', '#loginPage', function(event) {
         $.ajaxSetup({ cache: false });
 });
 
+function acceptTerms() {
+    $('.chkTerms').prop('checked', true);
+    $.mobile.changePage("#loginPage", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+}
+
 function showTermsPage() {
     $.mobile.changePage("#termsPage", {
         transition: "slide",

@@ -7,6 +7,8 @@
 </head>
 <body>
     
+    
+    
 <div id="loginPage" data-role="page" data-theme="b">
 	<div data-role="header" data-theme="b">
 		<h1>Allstate QuickFoto Claim@</h1>
@@ -14,17 +16,20 @@
     <div data-role="content"> 
         Enter your claim number below<br><br>
         <b>Claim Number</b><br>
-        <input type="text" class="fname" value="myqatr1015"/><br>
-        <input type="password" class="fpassword" value="Password1"/><br>
-        <input type="checkbox"/><span style="position: relative; top: -10px; left:35px;">I agree to the <a href='javascript:showTermsPage();'>terms and conditions, privacy statement</a></span>
-        <input type="button" class="btn-login" value="Login" onclick="Login()">
+        <input type="text" class="claimnumber" value=""/><br>
+        <input type="checkbox" class="chkTerms"/><span style="position: relative; top: -10px; left:35px;">I agree to the <a href='javascript:showTermsPage();'>terms and conditions, privacy statement</a></span>
+        <input type="button" class="btn-login" value="Start" onclick="Login()">
     </div>
     <div id="preview"></div>
 </div>
 
+    
+    
+    
 <div id="termsPage" data-role="page" data-theme="b" data-add-back-btn="true">
 	<div data-role="header" data-theme="b">
 		<h1>Terms & Conditions</h1>
+        <a href="javascript:acceptTerms();" data-role="icon" data-mini="true" data-theme="b" class="ui-btn-right">Agree</a>
 	</div>
     <div data-role="content" data-theme="b"> 
         Allstate QuickFoto Claims ("Application")<br>
@@ -42,6 +47,10 @@
    	</div>
 </div>    
 
+    
+    
+    
+    
 <div id="homePage" data-role="page" data-theme="b" data-add-back-btn="true">
 	<div data-role="header" data-theme="b">
 		<h1>Home</h1>
