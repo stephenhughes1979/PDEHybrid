@@ -4,10 +4,11 @@
 <dict>
 	<key>FoundWorkingCopyPaths</key>
 	<array>
+		<string>/Users/stephen/PDEHybridGit</string>
 		<string>/Users/stephen</string>
 	</array>
 	<key>LastWorkingCopyScanDate</key>
-	<date>2013-10-15T09:46:47Z</date>
+	<date>2013-10-15T13:19:41Z</date>
 	<key>MissingFilePaths</key>
 	<array/>
 	<key>Version</key>

@@ -18,18 +18,30 @@ var opts = {
 };
 
 var target = document.getElementById('preview');
-
-//function onDeviceReady() {
-    //if (parseFloat(window.device.version) === 7.0) {
-          //document.body.style.marginTop = "15px";
-    //}
-//}
+var deviceid;
+function onDeviceReady() {
+    if (parseFloat(window.device.version) === 7.0) {
+          document.body.style.marginTop = "15px";
+    }
+    
+    deviceid = device.uuid;
+    debug.log(deviceid);
+    navigator.notification.alert(deviceid, null, "Device id", 'OK');
+}
   
-//document.addEventListener('deviceready', onDeviceReady, false);
+document.addEventListener('deviceready', onDeviceReady, false);
 
 $(document).on('pageshow', '#loginPage', function(event) {
         $.ajaxSetup({ cache: false });
 });
+
+function showTermsPage() {
+    $.mobile.changePage("#termsPage", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+}
 
 function SearchByZip() {
     if ($('.textZip').val().trim() != "")
@@ -49,51 +61,49 @@ function SearchByZip() {
 
 function Login(){
         var spinner = new Spinner(opts).spin(target);
-        var username = $('.fname').val();
-        var password = $('.fpassword').val();
-        var usercred = {"InputPayload":{"UserName":username, "Password":password},"Header":{"SendingSystemCode":"A3C98370-A0FC-41cf-A5AD-281F4CDE43CE","SendingSystemName":"E7065EE6-8A5F-47e2-97A0-17BAF6D5B67B"}};
-        var databuiltup = "grant_type=password&username=" + username + "&password=" + password;
-        var accesstoken = '';
-    
+        
         $.ajax({
             type: "POST",
             cache: false,
-            url:"https://sgglext-dv.allstate.com/auth/oauth/v2/token?id=jbjnkjnkj",
-            data: databuiltup,
+            url:"https://www.bluebadgesolutions.com/services/loginservice.svc/authenticateuser/7854676767/1",
             contentType: "application/x-www-form-urlencoded",
             beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Basic aVJEX0w3VXNlcjpiYmJkYmY2Ny03ZTJkLTQwYTktYWQ1MS1kOTM1MDk1MzQ4ODc=');
+                    xhr.setRequestHeader('EstimatorDeviceId', '53423547890');
                 },
             success: function (data) {
-                accesstoken = data.access_token;
-                window.localStorage.setItem("accessToken", accesstoken);
+                console.log(data);
+            },
+            error: function(httpRequest, message, errorThrown) {
+                spinner.stop();
+                alert(errorThrown);
+            },
+            complete: function (jqXHR, textStatus) {
+                var cookieAuth = jqXHR.getResponseHeader("Set-Cookie");
+                window.localStorage.setItem("logincookie", cookieAuth);
                 $.ajax({
                     type: "POST",
                     cache: false,
-                    url:"https://sgglext-dv.allstate.com/mobile/r2r/customerservice/authenticatecustomercredentials?ih=kjkjkj",
-                    data: JSON.stringify(usercred),
+                    url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/getestimaterequestsbyclaimnumber/7854676767/1",
                     contentType: "application/json; charset=utf-8",
                     beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + accesstoken);
-
+                        xhr.setRequestHeader('EstimatorDeviceId', '53423547890');
+                        xhr.setRequestHeader('Cookie', cookieAuth);
                     },
                     success: function (data) {
-                        console.log(data);
                         spinner.stop();
-                        $.mobile.changePage( "#homePage", {
-                          transition: "slide",
-                          reverse: true,
-                          changeHash: true
-                        });
+                        console.log(data);
+                        console.log(data.IsSuccess);
+                        console.log(data.Requests.length);
+                        if (data.Requests.length > 0)
+                        {
+                            window.localStorage.setItem("claimdata", data.Requests[0]);
+                        }
                     },  
                     error: function(httpRequest, message, errorThrown) {
-                        navigator.notification.alert("The Username or Password entered was incorrect", null, "Login Failure", 'OK');
                         spinner.stop();
+                        alert(errorThrown);
                     }
-                });
-            },
-            error: function(httpRequest, message, errorThrown) {
-                alert("error: " + errorThrown);
+                }); 
             }
         });
-    };
+    }
