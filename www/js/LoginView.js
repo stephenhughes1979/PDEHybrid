@@ -39,14 +39,14 @@ function showTermsPage() {
 function Login(){
         var spinner = new Spinner(opts).spin(target);
         var claimnumber = $('.claimnumber').val();
-        alert(device.uuid);
+    
         $.ajax({
             type: "POST",
             cache: false,
             url:"https://www.bluebadgesolutions.com/services/loginservice.svc/authenticateuser/" + claimnumber + "/1",
             contentType: "application/x-www-form-urlencoded",
             beforeSend: function (xhr) {
-                    xhr.setRequestHeader('EstimatorDeviceId', '53423547890');
+                    xhr.setRequestHeader('EstimatorDeviceId', device.uuid);
                 },
             success: function (data) {
                 console.log(data);
@@ -64,7 +64,7 @@ function Login(){
                     url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/getestimaterequestsbyclaimnumber/" + claimnumber + "/1",
                     contentType: "application/json; charset=utf-8",
                     beforeSend: function (xhr) {
-                        xhr.setRequestHeader('EstimatorDeviceId', '53423547890');
+                        xhr.setRequestHeader('EstimatorDeviceId', device.uuid);
                         xhr.setRequestHeader('Cookie', cookieAuth);
                     },
                     success: function (data) {
@@ -75,6 +75,11 @@ function Login(){
                         if (data.Requests.length > 0)
                         {
                             window.localStorage.setItem("claimdata", data.Requests[0]);
+                            $.mobile.changePage("#homePage", {
+                                transition: "slide",
+                                reverse: true,
+                                changeHash: true
+                            });
                         }
                     },  
                     error: function(httpRequest, message, errorThrown) {
