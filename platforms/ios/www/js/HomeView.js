@@ -35,6 +35,14 @@ $(document).on('pageshow', '#loginPage', function(event) {
         $.ajaxSetup({ cache: false });
 });
 
+function showTermsPage() {
+    $.mobile.changePage("#termsPage", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+}
+
 function SearchByZip() {
     if ($('.textZip').val().trim() != "")
     {
@@ -82,13 +90,20 @@ function Login(){
                         xhr.setRequestHeader('Cookie', cookieAuth);
                     },
                     success: function (data) {
-                        console.log(data);
                         spinner.stop();
+                        console.log(data);
+                        console.log(data.IsSuccess);
+                        console.log(data.Requests.length);
+                        if (data.Requests.length > 0)
+                        {
+                            window.localStorage.setItem("claimdata", data.Requests[0]);
+                        }
                     },  
                     error: function(httpRequest, message, errorThrown) {
-                         alert(errorThrown);
+                        spinner.stop();
+                        alert(errorThrown);
                     }
                 }); 
             }
         });
-    };
+    }
