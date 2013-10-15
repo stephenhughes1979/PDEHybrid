@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.PDEHybrid" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>PDEHybrid</name>
+    <description>
+        Hello World sample application that responds to the deviceready event.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <feature name="http://api.phonegap.com/1.0/device" />
+
+    <icon src="Icon-72.png" />
+    <gap:splash gap:platform="ios" height="480" src="Default.png" width="320" />
+    <access origin="*" subdomains="true" />
+</widget>
