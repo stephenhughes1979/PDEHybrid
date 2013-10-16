@@ -22,8 +22,10 @@
 .my-button {
     background-image: url('images/btn_primary_wide.png') !important;
     background-size: 100% 100%;
+    background-color: transparent !important;
     color: #FFF !important;
-    text-shadow: 0 /*{b-bup-shadow-x}*/ 1px /*{b-bup-shadow-y}*/ 0 /*{b-bup-shadow-radius}*/ #000000 /*{b-bup-shadow-color}*/ !important;
+    text-shadow: 0 /*{b-bup-shadow-x}*/ 1px /*{b-bup-shadow-y}*/ 0 /*{b-bup-shadow-radius}*/ #ffffff /*{b-bup-shadow-color}*/;
+    border: 0px solid #cccccc !important;
 }
 
 .ui-bar-a {
