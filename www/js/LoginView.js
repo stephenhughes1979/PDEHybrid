@@ -26,7 +26,7 @@ function showTermsPage() {
 
 function Login(){
         $.mobile.loading( 'show', {
-            text: 'loading',
+            text: 'Loading',
             textVisible: true,
             theme: 'a',
             html: ""
