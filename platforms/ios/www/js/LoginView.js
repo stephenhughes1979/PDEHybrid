@@ -1,33 +1,11 @@
-var opts = {
-  lines: 11, // The number of lines to draw
-  length: 10, // The length of each line
-  width: 5, // The line thickness
-  radius: 15, // The radius of the inner circle
-  corners: 1, // Corner roundness (0..1)
-  rotate: 0, // The rotation offset
-  direction: 1, // 1: clockwise, -1: counterclockwise
-  color: '#000', // #rgb or #rrggbb or array of colors
-  speed: 1, // Rounds per second
-  trail: 60, // Afterglow percentage
-  shadow: false, // Whether to render a shadow
-  hwaccel: false, // Whether to use hardware acceleration
-  className: 'spinner', // The CSS class to assign to the spinner
-  zIndex: 2e9, // The z-index (defaults to 2000000000)
-  top: '20px', // Top position relative to parent in px
-  left: 'auto' // Left position relative to parent in px
-};
-
 $(document).on('pageshow', '#homePage', function(event) {
     var target = document.getElementById('preview1');
-    var spinner = new Spinner(opts).spin(target);
     var claimdata = JSON.parse(window.localStorage.getItem("claimdata"));
 
     console.log(claimdata.CustomerName);
     $('#lblName').text(claimdata.CustomerName);
     $('#lblClaimNumber').text(claimdata.ClaimNumber);
 });
-
-var target = document.getElementById('preview');
 
 function acceptTerms() {
     $('.chkTerms').prop('checked', true);
@@ -47,7 +25,12 @@ function showTermsPage() {
 }
 
 function Login(){
-        var spinner = new Spinner(opts).spin(target);
+        $.mobile.loading( 'show', {
+            text: 'loading',
+            textVisible: true,
+            theme: 'a',
+            html: ""
+        });
         var claimnumber = $('.claimnumber').val();
         //var deviceid = device.uuid;
         var deviceid = "454677778";
@@ -63,7 +46,6 @@ function Login(){
             success: function (data) {
             },
             error: function(httpRequest, message, errorThrown) {
-                spinner.stop();
                 alert(errorThrown);
             },
             complete: function (jqXHR, textStatus) {
@@ -79,9 +61,14 @@ function Login(){
                         xhr.setRequestHeader('Cookie', cookieAuth);
                     },
                     success: function (data) {
-                        spinner.stop();
                         if (data.Requests.length > 0)
                         {
+                            $.mobile.loading( 'hide', {
+                                text: 'foo',
+                                textVisible: true,
+                                theme: 'z',
+                                html: ""
+                            });
                             window.localStorage.setItem("claimdata", JSON.stringify(data.Requests[0]));
                             $.mobile.changePage("#homePage", {
                                 transition: "slide",
@@ -91,7 +78,6 @@ function Login(){
                         }
                     },  
                     error: function(httpRequest, message, errorThrown) {
-                        spinner.stop();
                         alert(errorThrown);
                     }
                 }); 
