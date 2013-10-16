@@ -24,7 +24,7 @@
     background-size: 100% 100%;
     background-color: transparent !important;
     color: #FFF !important;
-    text-shadow: 0 /*{b-bup-shadow-x}*/ 1px /*{b-bup-shadow-y}*/ 0 /*{b-bup-shadow-radius}*/ #ffffff /*{b-bup-shadow-color}*/;
+    text-shadow: 0 1px 0 #000000 !important;
     border: 0px solid #cccccc !important;
 }
 
