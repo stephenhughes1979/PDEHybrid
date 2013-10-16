@@ -1,5 +1,6 @@
 $(document).on('pageshow', '#detailsPage', function(event) {
     var agent = JSON.parse(window.localStorage.getItem("cachedAgent"));
+   
     console.log(agent);
     $('#fullName').text(agent.FirstName + ' ' + agent.LastName);
     $('#employeeTitle').text(agent.AgencyName);
