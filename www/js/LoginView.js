@@ -2,7 +2,7 @@ $(document).on('pageshow', '#homePage', function(event) {
     var target = document.getElementById('preview1');
     var claimdata = JSON.parse(window.localStorage.getItem("claimdata"));
 
-    console.log(claimdata.CustomerName);
+    console.log(claimdata);
     $('#lblName').text(claimdata.CustomerName);
     $('#lblClaimNumber').text(claimdata.ClaimNumber);
 });

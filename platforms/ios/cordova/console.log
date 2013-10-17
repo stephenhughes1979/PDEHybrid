@@ -88,3 +88,53 @@ Terminating in response to SpringBoard's termination.
 2013-10-16 17:17:13.366 PDEHybrid[66130:19103] Resetting plugins due to page load.
 2013-10-16 17:17:14.194 PDEHybrid[66130:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
 Terminating in response to SpringBoard's termination.
+2013-10-17 14:29:09.586 PDEHybrid[67778:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 14:29:09.683 PDEHybrid[67778:19103] Resetting plugins due to page load.
+2013-10-17 14:29:10.006 PDEHybrid[67778:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 14:29:48.021 PDEHybrid[68187:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 14:29:48.049 PDEHybrid[68187:19103] Resetting plugins due to page load.
+2013-10-17 14:29:48.384 PDEHybrid[68187:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 14:30:38.375 PDEHybrid[68604:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 14:30:38.403 PDEHybrid[68604:19103] Resetting plugins due to page load.
+2013-10-17 14:30:38.694 PDEHybrid[68604:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 14:32:14.705 PDEHybrid[69045:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 14:32:14.730 PDEHybrid[69045:19103] Resetting plugins due to page load.
+2013-10-17 14:32:15.020 PDEHybrid[69045:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 14:43:33.048 PDEHybrid[69829:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 14:43:33.076 PDEHybrid[69829:19103] Resetting plugins due to page load.
+2013-10-17 14:43:33.400 PDEHybrid[69829:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 14:47:57.126 PDEHybrid[70363:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 14:47:57.151 PDEHybrid[70363:19103] Resetting plugins due to page load.
+2013-10-17 14:47:57.256 PDEHybrid[70363:1b403] ADDRESPONSE - ADDING TO MEMORY ONLY: http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css
+2013-10-17 14:47:57.360 PDEHybrid[70363:1b403] ADDRESPONSE - ADDING TO MEMORY ONLY: http://code.jquery.com/jquery-1.9.1.min.js
+2013-10-17 14:47:57.381 PDEHybrid[70363:1b403] ADDRESPONSE - ADDING TO MEMORY ONLY: http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js
+2013-10-17 14:47:57.447 PDEHybrid[70363:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 14:50:05.263 PDEHybrid[70846:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 14:50:05.287 PDEHybrid[70846:19103] Resetting plugins due to page load.
+2013-10-17 14:50:05.594 PDEHybrid[70846:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 15:28:57.495 PDEHybrid[73771:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 15:28:57.526 PDEHybrid[73771:19103] Resetting plugins due to page load.
+2013-10-17 15:28:57.908 PDEHybrid[73771:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 16:06:19.511 PDEHybrid[75137:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 16:06:19.541 PDEHybrid[75137:19103] Resetting plugins due to page load.
+2013-10-17 16:06:19.879 PDEHybrid[75137:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 16:07:03.652 PDEHybrid[75562:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 16:07:03.677 PDEHybrid[75562:19103] Resetting plugins due to page load.
+2013-10-17 16:07:03.982 PDEHybrid[75562:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 16:07:46.403 PDEHybrid[75983:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 16:07:46.429 PDEHybrid[75983:19103] Resetting plugins due to page load.
+2013-10-17 16:07:46.772 PDEHybrid[75983:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html
+Terminating in response to SpringBoard's termination.
+2013-10-17 16:15:18.349 PDEHybrid[76509:19103] Multi-tasking -> Device: YES, App: YES
+2013-10-17 16:15:18.374 PDEHybrid[76509:19103] Resetting plugins due to page load.
+2013-10-17 16:15:18.744 PDEHybrid[76509:19103] Finished load of: file:///Users/stephen/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/1D8167E6-47AA-4613-8E94-0EE22F74BF4E/PDEHybrid.app/www/index.html

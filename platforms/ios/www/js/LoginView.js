@@ -2,7 +2,7 @@ $(document).on('pageshow', '#homePage', function(event) {
     var target = document.getElementById('preview1');
     var claimdata = JSON.parse(window.localStorage.getItem("claimdata"));
 
-    console.log(claimdata.CustomerName);
+    console.log(claimdata);
     $('#lblName').text(claimdata.CustomerName);
     $('#lblClaimNumber').text(claimdata.ClaimNumber);
 });
@@ -26,7 +26,7 @@ function showTermsPage() {
 
 function Login(){
         $.mobile.loading( 'show', {
-            text: 'loading',
+            text: 'Loading',
             textVisible: true,
             theme: 'a',
             html: ""
@@ -46,6 +46,12 @@ function Login(){
             success: function (data) {
             },
             error: function(httpRequest, message, errorThrown) {
+                $.mobile.loading( 'hide', {
+                                text: 'foo',
+                                textVisible: true,
+                                theme: 'z',
+                                html: ""
+                            });
                 alert(errorThrown);
             },
             complete: function (jqXHR, textStatus) {
@@ -78,6 +84,12 @@ function Login(){
                         }
                     },  
                     error: function(httpRequest, message, errorThrown) {
+                        $.mobile.loading( 'hide', {
+                                text: 'foo',
+                                textVisible: true,
+                                theme: 'z',
+                                html: ""
+                            });
                         alert(errorThrown);
                     }
                 }); 
