@@ -29,14 +29,13 @@
 }
 
 .my-button-2nd {
-    width:45% !important;
+    width:140px;
     background-image: url('images/btn_secondary_wide.png') !important;
     background-size: 100% 100% !important;
     background-color: transparent !important;
     color: #FFF !important;
     text-shadow: 0 1px 0 #000000 !important;
     border: 0px solid #cccccc !important;
-    float:right !important;
 }
 
 .ui-bar-a {

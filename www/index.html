@@ -59,13 +59,19 @@
     <div data-role="content" data-theme="b"> 
         <label id="lblName" style="font-weight:bold;"></label><br>
         Claim #: <label id="lblClaimNumber"></label>
+        <div class=ui-grid-a>
+            <div class=ui-block-a>
+                <a data-role="button" class="my-button-2nd" href="javascript:Login();"><img src="css/themes/images/ic_call_btn.png"><span style="position:relative;top:-10px; "><b>Call</b></span></a>
+            </div>
+            <div class=ui-block-b>
+                <a data-role="button" class="my-button-2nd" href="javascript:Login();"><img src="css/themes/images/ic_msg_btn.png"><span style="position:relative;top:-10px;left:10px;"><b>Text</b></span></a>
+            </div>
+        </div>
         <br>
-        <a data-role="button" class="my-button-2nd" href="javascript:Login();"><img src="css/themes/images/ic_call_btn.png"><span style="position:relative;top:-10px; "><b>Call</b></span></a>
-        <a data-role="button" class="my-button-2nd" href="javascript:Login();"><img src="css/themes/images/ic_msg_btn.png"><span style="position:relative;top:-10px;left:10px;"><b>Text</b></span></a>
-        <br><br>
-        <label style="font-weight:bold;">Damaged Areas</label><br><br>
-        <a data-role="button" style='height:50px' data-theme="a" data-icon="arrow-r" data-iconpos="right" class="iconleft"><img src="css/themes/images/ic_camera_sm_dark.png" style="position:relative;left:-50px;">
-            <span style="position:relative;top:-9px;left:-30px;">Basement</span></a>
+        <b>Damaged Areas</b><br><br>
+        <div id="lstDameage">
+        
+        </div>
    	</div>
 </div>
 

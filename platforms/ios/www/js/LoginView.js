@@ -5,6 +5,12 @@ $(document).on('pageshow', '#homePage', function(event) {
     console.log(claimdata);
     $('#lblName').text(claimdata.CustomerName);
     $('#lblClaimNumber').text(claimdata.ClaimNumber);
+    
+    for (var i=0; i<claimdata.Groups.length;i++)
+    {
+        var button = $('<a data-role="button" style="height:50px" data-theme="a" data-icon="arrow-r" data-iconpos="right" class="iconleft" value="' + claimdata.Groups[i].ID + '"><img src="css/themes/images/ic_camera_sm_dark.png" style="position:relative;left:-50px;"><span style="position:relative;top:-9px;left:-30px;">' + claimdata.Groups[i].Title + '</span></a>');
+        $("#lstDameage").append(button).trigger('create');
+    }
 });
 
 function acceptTerms() {
