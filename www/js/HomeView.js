@@ -30,7 +30,13 @@ function openCamera() {
 }
 
 function onSuccess(imageData) {
-    console.log(imageData);
+    $.mobile.changePage("#previewPhoto", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+    $('#imgPreview').src = "data:image/jpeg;base64," + imageData;
+
 }
 
 function onFail(message) {
