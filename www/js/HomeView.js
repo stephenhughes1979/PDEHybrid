@@ -35,6 +35,7 @@ function onSuccess(imageData) {
         reverse: true,
         changeHash: true
     });
+    alert(imageData);
     $('#imgPreview').src = "data:image/jpeg;base64," + imageData;
 
 }
