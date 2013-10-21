@@ -30,5 +30,4 @@
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="OpenAllWhitelistURLsInWebView" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
-    <preference name="DisallowOverscroll" value="true" />
 </widget>
