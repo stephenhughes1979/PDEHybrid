@@ -38,6 +38,26 @@
     border: 0px solid #cccccc !important;
 }
 
+.my-button-3rd {
+    width:100px;
+    background-image: url('images/btn_negative_tall.png') !important;
+    background-size: 100% 100% !important;
+    background-color: transparent !important;
+    color: #FFF !important;
+    text-shadow: 0 1px 0 #000000 !important;
+    border: 0px solid #cccccc !important;
+}
+
+.my-button-4th {
+    width:100px;
+    background-image: url('images/btn_primary_tall.png') !important;
+    background-size: 100% 100% !important;
+    background-color: transparent !important;
+    color: #FFF !important;
+    text-shadow: 0 1px 0 #000000 !important;
+    border: 0px solid #cccccc !important;
+}
+
 .ui-bar-a {
 	border: 1px solid #b3b3b3 /*{a-bar-border}*/;
 	background: #eeeeee /*{a-bar-background-color}*/;
@@ -321,16 +341,11 @@
 }
 .ui-body-c,
 .ui-overlay-c {
-	border: 1px solid #aaaaaa /*{c-body-border}*/;
-	color: #333333 /*{c-body-color}*/;
-	text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #ffffff /*{c-body-shadow-color}*/;
-	background: #f9f9f9 /*{c-body-background-color}*/;
-	background-image: -webkit-gradient(linear, left top, left bottom, from( #f9f9f9 /*{c-body-background-start}*/), to( #eeeeee /*{c-body-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eeeeee /*{c-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eeeeee /*{c-body-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eeeeee /*{c-body-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eeeeee /*{c-body-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eeeeee /*{c-body-background-end}*/);
+	border: 0px solid #aaaaaa /*{c-body-border}*/;
+	color: #000000 /*{c-body-color}*/;
+	text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #FFFFFF /*{c-body-shadow-color}*/;
+    font-family:Arial;
+    font-size:14;
 }
 .ui-overlay-c {
 	background-image: none;
@@ -338,6 +353,7 @@
 }
 .ui-body-c {
     background: #000000;
+    color:#FFFFFF;
 }
 .ui-body-c input,
 .ui-body-c select,

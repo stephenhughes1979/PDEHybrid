@@ -25,7 +25,8 @@ function Login(){
         var claimnumber = $('.claimnumber').val();
         //var deviceid = device.uuid;
         var deviceid = "454677778";
-    
+        window.localStorage.setItem("deviceid", deviceid);
+        
         $.ajax({
             type: "POST",
             cache: false,
