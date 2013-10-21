@@ -5,12 +5,13 @@
 	<key>FoundWorkingCopyPaths</key>
 	<array>
 		<string>/Users/stephen/PDEHybridGit</string>
-		<string>/Users/stephen</string>
 	</array>
 	<key>LastWorkingCopyScanDate</key>
-	<date>2013-10-15T13:19:41Z</date>
+	<date>2013-10-21T13:22:38Z</date>
 	<key>MissingFilePaths</key>
-	<array/>
+	<array>
+		<string>/Users/stephen/PDEHybridGit/platforms/ios/www/phonegap.js</string>
+	</array>
 	<key>Version</key>
 	<integer>4</integer>
 </dict>

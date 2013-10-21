@@ -24,15 +24,27 @@ function takePhoto(groupid) {
 }
 
 function openCamera() {
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+    $.mobile.changePage("#previewPhoto", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 100, targetWidth:320, targetHeight:480,
         destinationType: Camera.DestinationType.DATA_URL
     }); 
 }
 
 function onSuccess(imageData) {
-    console.log(imageData);
+    var image = document.getElementById('imgPreview');
+    $("#imgdiv").css('background-image', 'url(' + "data:image/jpeg;base64," + imageData + ')');
+    $("#imgdiv").css('height', '480');
+    $("#imgdiv").css('width', '290');
 }
 
 function onFail(message) {
-    alert('Failed because: ' + message);
+    $.mobile.changePage("#homePage", {
+                        transition: "slide",
+                        reverse: true,
+                        changeHash: true
+                        });
 }
