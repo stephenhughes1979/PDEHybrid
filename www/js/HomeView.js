@@ -1,4 +1,5 @@
 var imagebyte;
+var caption;
 
 $(document).on('pageshow', '#homePage', function(event) {
    
@@ -10,17 +11,69 @@ $(document).on('pageshow', '#homePage', function(event) {
     $('#lblName').text(claimdata.CustomerName);
     $('#lblClaimNumber').text(claimdata.ClaimNumber);
     
-    $('#lstDameage').empty();
+    $('#lstExistingPhotos').empty();
+    $('#lstDamageAreas').empty();
+    $('#lstPersonalProperty').empty();
+    $('#lstDocuments').empty();
+    
+    if (claimdata.PhotosAlreadyTaken == 1)
+    {
+        $("#lstExistingPhotos").append("<b>Existing Photos</b><br>");
+        var button = $('<a data-role="button" style="line-height:10px;" data-icon="arrow-r" data-iconpos="right" href="javascript:takePhoto();"><img src="css/themes/images/ic_camera_sm_dark.png"><span style="position:relative;top:-20px;">Existing Photos</span><a>');
+        $("#lstExistingPhotos").append(button).trigger('create');
+    }
+    
+    var DamageTile = 0;
+    var PersonalTitle = 0;
+    var DocumentTitle = 0;
     for (var i=0; i<claimdata.Groups.length;i++)
     {
-        var button = $('<a data-role="button" style="height:50px" data-theme="a" data-icon="arrow-r" data-iconpos="right" class="iconleft" href="javascript:takePhoto(\'' + claimdata.Groups[i].ID + '\');"><img src="css/themes/images/ic_camera_sm_dark.png" style="position:relative;left:-50px;"><span style="position:relative;top:-9px;left:-30px;">' + claimdata.Groups[i].Title + '</span></a>');
-        $("#lstDameage").append(button).trigger('create');
+        if (claimdata.Groups[i].Type == 1) 
+        {
+            if (DamageTile == 0)
+            {
+                $("#lstDamageAreas").append("<b>Damaged Areas</b><br>");
+                DamageTitle = 1;
+            }
+            var button = $('<a data-role="button" style="line-height:10px;" data-icon="arrow-r" data-iconpos="right" href="javascript:takePhoto(\'' + claimdata.Groups[i].ID + '\');"><img src="css/themes/images/ic_camera_sm_dark.png"><span style="position:relative;top:-20px;">' + claimdata.Groups[i].Title + '</span></a>');
+            $("#lstDamageAreas").append(button).trigger('create');
+        }
+        else if (claimdata.Groups[i].Type == 2) 
+        {
+            if (PersonalTitle == 0)
+            {
+                $("#lstPersonalProperty").append("<b>Personal Property</b><br>");
+                PersonalTitle = 1;
+            }
+            var button = $('<a data-role="button" style="line-height:10px;" data-icon="arrow-r" data-iconpos="right" href="javascript:takePhoto(\'' + claimdata.Groups[i].ID + '\');"><img src="css/themes/images/ic_camera_sm_dark.png"><span style="position:relative;top:-20px;">' + claimdata.Groups[i].Title + '</span></a>');
+            $("#lstPersonalProperty").append(button).trigger('create');
+        }
+        else if (claimdata.Groups[i].Type == 3) 
+        {
+            if (DocumentTitle == 0)
+            {
+                $("#lstDocuments").append("<b>Documents</b><br>");
+                DocumentTitle = 1;
+            }
+            var button = $('<a data-role="button" style="line-height:10px;" data-icon="arrow-r" data-iconpos="right" href="javascript:takePhoto(\'' + claimdata.Groups[i].ID + '\');"><img src="css/themes/images/ic_camera_sm_dark.png"><span style="position:relative;top:-20px;">' + claimdata.Groups[i].Title + '</span></a>');
+            $("#lstDocuments").append(button).trigger('create');
+        } 
     }
 });
 
 $( "#divAddDescription" ).click(function() {
-  alert( "Handler for .click() called." );
+    $('#popupCaption').popup('open');
 });
+
+function closePopup() {
+    $('#popupCaption').popup('close');
+}
+
+function getCaption() {
+    caption = $('#captiontextarea').val();
+    $('#captionlabel').text(caption);
+    $('#popupCaption').popup('close');
+}
 
 function uploadPhoto()
 {
@@ -30,11 +83,12 @@ function uploadPhoto()
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
     var photo = imagebyte;
-   // $('#textdump').text(photo);
+  
     $.ajax({
         type: "POST",
         cache: false,
-        url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/createestimatephoto/JPG/8/0/shugh@allstate.com/nocaption/" +  groupid,
+        processData:false,
+        url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/createestimatephoto/JPG/8/0/shugh@allstate.com/" + caption + "/" +  groupid,
         contentType: "application/json; charset=utf-8",
         data:photo,
         beforeSend: function (xhr) {

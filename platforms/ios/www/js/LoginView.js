@@ -15,14 +15,28 @@ function showTermsPage() {
     });
 }
 
+function Logout() {
+    window.localStorage.clear();
+    $('.claimnumber').val("");
+    $.mobile.changePage("#loginPage", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+}
+
 function Login(){
-        $.mobile.loading( 'show', {
+    $.mobile.loading( 'show', {
             text: 'Loading',
             textVisible: true,
             theme: 'a',
             html: ""
-        });
-        var claimnumber = $('.claimnumber').val();
+    });
+    
+    var claimnumber = $('.claimnumber').val();
+    var chkTermsConds = $(".chkTerms").is(':checked') ? 1 : 0;
+    if ((claimnumber.trim() != "") && (chkTermsConds == 1))
+    {
         //var deviceid = device.uuid;
         var deviceid = "454677778";
         window.localStorage.setItem("deviceid", deviceid);
@@ -36,6 +50,7 @@ function Login(){
                     xhr.setRequestHeader('EstimatorDeviceId', deviceid);
                 },
             success: function (data) {
+                window.localStorage.setItem("UserEmail", data.DisplayName);
             },
             error: function(httpRequest, message, errorThrown) {
                 $.mobile.loading( 'hide', {
@@ -45,6 +60,7 @@ function Login(){
                                 html: ""
                             });
                 alert(errorThrown);
+
             },
             complete: function (jqXHR, textStatus) {
                 var cookieAuth = jqXHR.getResponseHeader("Set-Cookie");
@@ -82,9 +98,20 @@ function Login(){
                                 theme: 'z',
                                 html: ""
                             });
-                        alert(errorThrown);
+                            alert(errorThrown);
                     }
                 }); 
             }
         });
     }
+    else
+    {
+        $.mobile.loading( 'hide', {
+            text: 'foo',
+            textVisible: true,
+            theme: 'z',
+            html: ""
+        });
+        alert("Please ensure you have entered a claim number and have accepted the terms and conditions.");
+    }
+}
