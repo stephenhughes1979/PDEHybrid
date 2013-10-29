@@ -136,22 +136,23 @@ function takePhoto(groupid) {
 }
 
 function openCamera() {
-    $.mobile.changePage("#previewPhoto", {
-        transition: "slide",
-        reverse: true,
-        changeHash: true
-    });
     navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
         destinationType: Camera.DestinationType.DATA_URL
     }); 
 }
 
 function onSuccess(imageData) {
-    var image = document.getElementById('imgPreview');
-    $("#imgdiv").css('background-image', 'url(' + "data:image/jpeg;base64," + imageData + ')');
-    $("#imgdiv").css('height', '480');
-    $("#imgdiv").css('width', '290');
-    imagebyte = imageData;
+    $.mobile.changePage("#previewPhoto", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+    
+    //$("#imgdiv").css('background-image', 'url(' + "data:image/jpeg;base64," + imageData + ')');
+    //$("#imgdiv").css('background-image', 'url(\'css/themes/images/ic_camera_sm_dark.png\')');
+    //$("#imgdiv").css('height', '480');
+    //$("#imgdiv").css('width', '290');
+    //imagebyte = imageData;
 }
 
 function onFail(message) {
