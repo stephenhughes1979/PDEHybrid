@@ -17,8 +17,16 @@
     <div data-role="content"> 
         Enter your claim number below<br><br>
         <b>Claim Number</b><br>
-        <input type="text" class="claimnumber" value="5432101234"/><br>
-        <input type="checkbox" class="chkTerms"/><span style="position: relative; top: -10px; left:35px;">I agree to the <a href='javascript:showTermsPage();'>terms and conditions, privacy statement</a></span>
+        <input type="text" class="claimnumber" value="5432101234"/>
+        <br clear="all">
+        <div class=ui-grid-a>
+            <div style="width:10%;margin-right:10px;" class=ui-block-a>
+                <input style="position:relative;top:10px;" type="checkbox" class="chkTerms"/>
+            </div>
+            <div style="width:80%;" class=ui-block-b>
+                I agree to the <a href='javascript:showTermsPage();'>terms and conditions, privacy statement</a>
+            </div>
+        </div>
         
         <a data-role="button" class="my-button" href="javascript:Login();"><b>Start</b></a>
     </div>
@@ -149,7 +157,7 @@
     </div>
     <div data-role="footer" data-theme="a" data-position="fixed">
         <div class="ui-grid-a">
-            <div style="width:10%;" class="ui-block-a"><a href="javascript:TakeMessagePhoto();" style="position:relative;left:5px;top:5px;"><img src="css/themes/images/ic_camera_msg_button.png"></a></div>     
+            <div style="width:10%;" class="ui-block-a"><a href="javascript:TakeMessagePhoto();"><img style="position:relative;left:7px;top:10px;" src="css/themes/images/ic_camera_msg_button.png"></a></div>     
             <div style="width:65%;" class="ui-block-b"><input style="" data-mini="true" type="text" name="message" id="message" value="" data-theme="a"/></div>
             <div style="width:25%;" class="ui-block-c"><a data-role="button" href="javascript:AddMessage();"><span>Done</span></a></div>       
         </div>

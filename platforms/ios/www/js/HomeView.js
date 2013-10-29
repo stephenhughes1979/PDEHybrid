@@ -77,8 +77,8 @@ function getCaption() {
 
 function uploadPhoto()
 {
-  
-    var groupid = window.localStorage.getItem("currentgroup");
+    alert("Not implemented yet");
+    /*var groupid = window.localStorage.getItem("currentgroup");
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
@@ -112,7 +112,7 @@ function uploadPhoto()
             });
             alert(errorThrown);
         }
-    });
+    });*/
 }
 
 function Discard() {
@@ -136,22 +136,43 @@ function takePhoto(groupid) {
 }
 
 function openCamera() {
+    if(navigator.userAgent.toLowerCase().match(/iphone/))
+    {
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+            destinationType: Camera.DestinationType.DATA_URL
+        }); 
+    }
+    else
+    {
+        navigator.camera.getPicture(onSuccessURI, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+            destinationType: Camera.DestinationType.FILE_URI
+        }); 
+    }
+}
+
+function onSuccessURI(imageURI) {
     $.mobile.changePage("#previewPhoto", {
         transition: "slide",
         reverse: true,
         changeHash: true
     });
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
-        destinationType: Camera.DestinationType.DATA_URL
-    }); 
+    
+    $("#imgdiv").css('background-image', 'url(' + imageURI + ')');
+    $("#imgdiv").css('height', '480');
+    $("#imgdiv").css('width', '290');
 }
 
 function onSuccess(imageData) {
-    var image = document.getElementById('imgPreview');
-    $("#imgdiv").css('background-image', 'url(' + "data:image/jpeg;base64," + imageData + ')');
+    $.mobile.changePage("#previewPhoto", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+    
+    $("#imgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
-    imagebyte = imageData;
+    //imagebyte = imageData;
 }
 
 function onFail(message) {

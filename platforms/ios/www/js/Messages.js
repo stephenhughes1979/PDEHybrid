@@ -20,7 +20,6 @@ function onMessageSuccess(imageData) {
 }
 
 function onMessageFail(message) {
-    alert("An error occured");
     $.mobile.changePage("#messagesPage", {
                         transition: "slide",
                         reverse: true,
