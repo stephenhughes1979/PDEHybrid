@@ -153,6 +153,12 @@ function openCamera() {
 }
 
 function onSuccessURI(imageURI) {
+    $.mobile.changePage("#previewPhoto", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
+    
     $("#imgdiv").css('background-image', 'url(' + imageURI + ')');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
@@ -166,7 +172,6 @@ function onSuccess(imageData) {
     });
     
     $("#imgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
-    //$("#imgdiv").css('background-image', 'url(' +  + ')');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
     //imagebyte = imageData;
