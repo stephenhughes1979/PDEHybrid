@@ -148,6 +148,7 @@ function onSuccess(imageData) {
         changeHash: true
     });
     
+    $("#imgdiv").css('background-image', 'url(\'Default.png\')');
     //$("#imgdiv").css('background-image', 'url(' + "data:image/jpeg;base64," + imageData + ')');
     //$("#imgdiv").css('background-image', 'url(\'css/themes/images/ic_camera_sm_dark.png\')');
     //$("#imgdiv").css('height', '480');
