@@ -27,7 +27,6 @@
     <preference name="android-installLocation" value="auto" />
     <icon src="Icon-72.png" />
     <gap:splash height="480" src="default.png" width="320" />
-    <gap:plugin name="com.phonegap.plugins.pushplugin" />
     
     <access origin="*"/>
 </widget>
