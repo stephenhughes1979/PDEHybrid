@@ -77,8 +77,8 @@ function getCaption() {
 
 function uploadPhoto()
 {
-  
-    var groupid = window.localStorage.getItem("currentgroup");
+    alert("Not implemented yet");
+    /*var groupid = window.localStorage.getItem("currentgroup");
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
@@ -112,7 +112,7 @@ function uploadPhoto()
             });
             alert(errorThrown);
         }
-    });
+    });*/
 }
 
 function Discard() {
@@ -150,9 +150,8 @@ function onSuccess(imageData) {
     
     $("#imgdiv").css('background-image', 'url(\'Default.png\')');
     //$("#imgdiv").css('background-image', 'url(' + "data:image/jpeg;base64," + imageData + ')');
-    //$("#imgdiv").css('background-image', 'url(\'css/themes/images/ic_camera_sm_dark.png\')');
-    //$("#imgdiv").css('height', '480');
-    //$("#imgdiv").css('width', '290');
+    $("#imgdiv").css('height', '480');
+    $("#imgdiv").css('width', '290');
     //imagebyte = imageData;
 }
 
