@@ -138,14 +138,12 @@ function takePhoto(groupid) {
 function openCamera() {
     if(navigator.userAgent.toLowerCase().match(/iphone/))
     {
-        alert(navigator.userAgent);
         navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.DATA_URL
         }); 
     }
     else
     {
-        alert(navigator.userAgent);
         navigator.camera.getPicture(onSuccessURI, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.FILE_URI
         }); 

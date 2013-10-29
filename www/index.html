@@ -18,7 +18,15 @@
         Enter your claim number below<br><br>
         <b>Claim Number</b><br>
         <input type="text" class="claimnumber" value="5432101234"/><br>
-        <input type="checkbox" class="chkTerms"/><span style="position: relative; top: -10px; left:35px;">I agree to the <a href='javascript:showTermsPage();'>terms and conditions, privacy statement</a></span>
+        
+        <div class=ui-grid-a style="position:relative;top:300px;">
+            <div class=ui-block-a>
+                <input type="checkbox" class="chkTerms"/>
+            </div>
+            <div class=ui-block-b>
+                I agree to the <a href='javascript:showTermsPage();'>terms and conditions, privacy statement</a>
+            </div>
+        </div>
         
         <a data-role="button" class="my-button" href="javascript:Login();"><b>Start</b></a>
     </div>
@@ -101,7 +109,7 @@
         <div id="divAddDescription" style="background:#000000;position:relative;top:300px;left:-16.5px;width:320px;height:50px;border-top:2px solid #aaaaaa;border-bottom:2px solid #aaaaaa;">
             <img src="css/themes/images/btn_add_caption_alt.png" style="position:relative;left:20px;">
             <span id="captionlabel" style="position:relative;top:-5px;left:60px;">
-                Add Description (optional test change) 
+                Add Description (optional) 
             </span>
         </div>
         <div class=ui-grid-a style="position:relative;top:300px;">
