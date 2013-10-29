@@ -136,9 +136,26 @@ function takePhoto(groupid) {
 }
 
 function openCamera() {
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
-        destinationType: Camera.DestinationType.DATA_URL
-    }); 
+    if(navigator.userAgent.toLowerCase().match(/iphone/))
+    {
+        alert(navigator.userAgent);
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+            destinationType: Camera.DestinationType.DATA_URL
+        }); 
+    }
+    else
+    {
+        alert(navigator.userAgent);
+        navigator.camera.getPicture(onSuccessURI, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+            destinationType: Camera.DestinationType.FILE_URI
+        }); 
+    }
+}
+
+function onSuccessURI(imageURI) {
+    $("#imgdiv").css('background-image', 'url(' + imageURI + ')');
+    $("#imgdiv").css('height', '480');
+    $("#imgdiv").css('width', '290');
 }
 
 function onSuccess(imageData) {
@@ -148,7 +165,7 @@ function onSuccess(imageData) {
         changeHash: true
     });
     
-    $("#imgdiv").css('background-image', 'url(\'data:image/jpeg;base64,' + imageData + '\')');
+    $("#imgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
     //$("#imgdiv").css('background-image', 'url(' +  + ')');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
