@@ -148,8 +148,8 @@ function onSuccess(imageData) {
         changeHash: true
     });
     
-    $("#imgdiv").css('background-image', 'url(\'Default.png\')');
-    //$("#imgdiv").css('background-image', 'url(' + "data:image/jpeg;base64," + imageData + ')');
+    $("#imgdiv").css('background-image', 'url(\'data:image/jpeg;base64,' + imageData + '\')');
+    //$("#imgdiv").css('background-image', 'url(' +  + ')');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
     //imagebyte = imageData;
