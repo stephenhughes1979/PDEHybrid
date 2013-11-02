@@ -94,7 +94,11 @@ function uploadPhoto()
     var token = window.localStorage.getItem("token");
     var photo = imagebyte;
   
-    //HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, photo, groupid, deviceid,logincookie, token);
+    /*HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, photo, groupid, deviceid,logincookie, token);
+    
+    <feature name="com.tricedesigns.HelloPlugin">
+        <param name="ios-package" value="HelloPlugin" />
+    </feature>*/
 }
 
 function Discard() {

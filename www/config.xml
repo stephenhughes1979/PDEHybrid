@@ -28,8 +28,6 @@
     <preference name="android-installLocation" value="auto" />
     <icon src="Icon-72.png" />
     <gap:splash height="480" src="default.png" width="320" />
-    <feature name="com.tricedesigns.HelloPlugin">
-        <param name="ios-package" value="HelloPlugin" />
-    </feature>
+    <gap:plugin name="com.phonegap.plugins.pushplugin" />
     <access origin="*"/>
 </widget>
