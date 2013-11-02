@@ -127,7 +127,7 @@ function uploadPhoto()
             "alert":"true",
             "ecb":"onNotificationAPN"
         });
-    
+    alert("got past push notification without error");
     /*var groupid = window.localStorage.getItem("currentgroup");
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
