@@ -77,20 +77,35 @@ function getCaption() {
 
 function uploadPhoto()
 {
-    alert("Not implemented yet");
-    /*var groupid = window.localStorage.getItem("currentgroup");
+    var groupid = window.localStorage.getItem("currentgroup");
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
     var photo = imagebyte;
-  
+    
+    if(navigator.userAgent.toLowerCase().match(/iphone/))
+    {
+        callNativePlugin(photo);
+        $.mobile.changePage("#homePage", {
+                            transition: "slide",
+                            reverse: true,
+                            changeHash: true
+                            });
+    }
+    else
+    {
+        alert("Not implemented for android yet");
+    }
+    /*var e = Base64.encode(JSON.stringify("data:image/png;base64," + photo));
+    var d = Base64.decode( e );
+    
     $.ajax({
         type: "POST",
         cache: false,
         processData:false,
         url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/createestimatephoto/JPG/8/0/shugh@allstate.com/" + caption + "/" +  groupid,
         contentType: "application/json; charset=utf-8",
-        data:photo,
+        data:e,
         beforeSend: function (xhr) {
             xhr.setRequestHeader('EstimatorDeviceId', deviceid);
             xhr.setRequestHeader('Cookie', logincookie);
@@ -135,6 +150,18 @@ function takePhoto(groupid) {
     });
 }
 
+function callNativePlugin(imageData) {
+    HelloPlugin.callNativeFunction( nativePluginResultHandler, nativePluginErrorHandler, imageData);
+}
+
+function nativePluginResultHandler (result) {
+    alert("SUCCESS: \r\n"+result );
+}
+
+function nativePluginErrorHandler (error) {
+    alert("ERROR: \r\n"+error );
+}
+
 function openCamera() {
     if(navigator.userAgent.toLowerCase().match(/iphone/))
     {
@@ -156,7 +183,7 @@ function onSuccessURI(imageURI) {
         reverse: true,
         changeHash: true
     });
-    
+   
     $("#imgdiv").css('background-image', 'url(' + imageURI + ')');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
@@ -172,7 +199,7 @@ function onSuccess(imageData) {
     $("#imgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
-    //imagebyte = imageData;
+    imagebyte = imageData;
 }
 
 function onFail(message) {

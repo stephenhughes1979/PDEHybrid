@@ -7,6 +7,7 @@
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
     </author>
+    
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/file"></feature>
     
@@ -27,6 +28,8 @@
     <preference name="android-installLocation" value="auto" />
     <icon src="Icon-72.png" />
     <gap:splash height="480" src="default.png" width="320" />
-    
+    <feature name="com.tricedesigns.HelloPlugin">
+        <param name="ios-package" value="HelloPlugin" />
+    </feature>
     <access origin="*"/>
 </widget>

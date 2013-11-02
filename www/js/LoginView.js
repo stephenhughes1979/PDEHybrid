@@ -25,6 +25,18 @@ function Logout() {
     });
 }
 
+function callNativePlugin( returnSuccess ) {
+    HelloPlugin.callNativeFunction( nativePluginResultHandler, nativePluginErrorHandler, returnSuccess );
+}
+                                   
+function nativePluginResultHandler (result) {
+   alert("SUCCESS: \r\n"+result );
+}
+
+function nativePluginErrorHandler (error) {
+   alert("ERROR: \r\n"+error );
+}
+
 function Login(){
     $.mobile.loading( 'show', {
             text: 'Loading',
