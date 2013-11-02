@@ -83,18 +83,58 @@ function nativePluginErrorHandler (error) {
     alert("ERROR: \r\n"+error );
 }
 
+function successHandler (result) {
+    alert('result = ' + result);
+}
+
+function errorHandler (error) {
+    alert('error = ' + error);
+}
+
+function tokenHandler (result) {
+    alert('device token = ' + result);
+}
+
+function onNotificationAPN (event) {
+    if ( event.alert )
+    {
+        navigator.notification.alert(event.alert);
+    }
+
+    if ( event.sound )
+    {
+        var snd = new Media(event.sound);
+        snd.play();
+    }
+
+    if ( event.badge )
+    {
+        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+    }
+}
+
 function uploadPhoto()
 {
-    alert("Not implemented yet");
+    //alert("Not implemented yet");
+    var pushNotification;
+    pushNotification = window.plugins.pushNotification;
     
+    pushNotification.register(
+        tokenHandler,
+        errorHandler, {
+            "badge":"true",
+            "sound":"true",
+            "alert":"true",
+            "ecb":"onNotificationAPN"
+        });
     
-    var groupid = window.localStorage.getItem("currentgroup");
+    /*var groupid = window.localStorage.getItem("currentgroup");
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
     var photo = imagebyte;
   
-    /*HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, photo, groupid, deviceid,logincookie, token);
+    HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, photo, groupid, deviceid,logincookie, token);
     
     <feature name="com.tricedesigns.HelloPlugin">
         <param name="ios-package" value="HelloPlugin" />
