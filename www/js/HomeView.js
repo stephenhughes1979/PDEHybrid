@@ -75,44 +75,26 @@ function getCaption() {
     $('#popupCaption').popup('close');
 }
 
+function nativePluginResultHandler (result) {
+    alert("SUCCESS: \r\n"+result );
+}
+
+function nativePluginErrorHandler (error) {
+    alert("ERROR: \r\n"+error );
+}
+
 function uploadPhoto()
 {
     alert("Not implemented yet");
-    /*var groupid = window.localStorage.getItem("currentgroup");
+    
+    
+    var groupid = window.localStorage.getItem("currentgroup");
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
     var photo = imagebyte;
   
-    $.ajax({
-        type: "POST",
-        cache: false,
-        processData:false,
-        url:"https://www.bluebadgesolutions.com/services/estimatorservice.svc/createestimatephoto/JPG/8/0/shugh@allstate.com/" + caption + "/" +  groupid,
-        contentType: "application/json; charset=utf-8",
-        data:photo,
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('EstimatorDeviceId', deviceid);
-            xhr.setRequestHeader('Cookie', logincookie);
-            xhr.setRequestHeader('EstimatorRequestToken',token);
-            xhr.setRequestHeader('EstimatorLatitude','67.87');
-            xhr.setRequestHeader('EstimatorLongitude','74.78');
-        },
-        success: function (data) {
-            alert(data.IsSuccess);
-            alert(data.ErrorMessage);
-        },  
-        error: function(httpRequest, message, errorThrown) {
-            alert('fail');
-            $.mobile.loading( 'hide', {
-                text: 'foo',
-                textVisible: true,
-                theme: 'z',
-                html: ""
-            });
-            alert(errorThrown);
-        }
-    });*/
+    //HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, photo, groupid, deviceid,logincookie, token);
 }
 
 function Discard() {
@@ -172,7 +154,7 @@ function onSuccess(imageData) {
     $("#imgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
-    //imagebyte = imageData;
+    imagebyte = imageData;
 }
 
 function onFail(message) {
