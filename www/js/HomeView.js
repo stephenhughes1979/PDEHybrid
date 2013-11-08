@@ -388,8 +388,14 @@ function showBigPic(imageData) {
                         reverse: true,
                         changeHash: true
                         });
-    
-    $("#bigPicImgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
+    if(navigator.userAgent.toLowerCase().match(/iphone/))
+    {
+        $("#bigPicImgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
+    }
+    else
+    {
+        $("#bigPicImgdiv").css('background-image', 'url("' + imageData + '")');
+    }
     $("#bigPicImgdiv").css('height', '470');
     $("#bigPicImgdiv").css('width', '290');
 }
