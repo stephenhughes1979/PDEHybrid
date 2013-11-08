@@ -15,7 +15,7 @@ function MessagesGo() {
 }
 
 function TakeMessagePhoto() {
-        navigator.camera.getPicture(onMessageSuccess, onMessageFail, { quality: 50, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+        navigator.camera.getPicture(onMessageSuccess, onMessageFail, { quality: 100, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
         destinationType: Camera.DestinationType.DATA_URL
     }); 
 }
