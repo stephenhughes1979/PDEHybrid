@@ -314,18 +314,18 @@ function isEven(n)
 }
 
 function openCamera() {
-    if(navigator.userAgent.toLowerCase().match(/iphone/))
-    {
+    //if(navigator.userAgent.toLowerCase().match(/iphone/))
+    //{
         navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.DATA_URL
         }); 
-    }
+    /*}
     else
     {
         navigator.camera.getPicture(onSuccessURI, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.FILE_URI
         }); 
-    }
+    }*/
 }
 
 function onSuccessURI(imageURI) {
