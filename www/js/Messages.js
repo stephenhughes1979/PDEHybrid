@@ -34,7 +34,9 @@ function onMessageSuccess(imageData) {
     var photo = new photoObject(imageData, 0, "Message Photo");
     messagePhotoArray[0] = photo;
 
-    HelloPlugin.callNativeFunction(nativePluginmessageHandler, nativePluginmessageerrorHandler, groupid, deviceid,logincookie, token, messagePhotoArray);
+    //HelloPlugin.callNativeFunction(nativePluginmessageHandler, nativePluginmessageerrorHandler, groupid, deviceid,logincookie, token, messagePhotoArray);
+    navigator.notification.alert(
+    '"Photo Upload not actually executed. Please use custom plugin version of the app for that function"', null, 'Photo Upload', 'Done');
 }
 
 function onMessageFail(message) {
