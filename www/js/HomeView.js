@@ -295,7 +295,14 @@ function takePhoto(groupid) {
                     tag = "b";
                 }
       
-                $("#photoGrid").append("<div class=ui-block-" + tag + "><a href=\"javascript:showBigPic('" + img_array[key].bytes + "');\"><img  style=\"margin:10px;\" height=\"120\" width=\"120\" src=\"data:image/png;base64," + img_array[key].bytes + "\"></a></div>");
+                if (navigator.userAgent.toLowerCase().match(/iphone/))
+                {
+                    $("#photoGrid").append("<div class=ui-block-" + tag + "><a href=\"javascript:showBigPic('" + img_array[key].bytes + "');\"><img  style=\"margin:10px;\" height=\"120\" width=\"120\" src=\"data:image/png;base64," + img_array[key].bytes + "\"></a></div>");
+                }
+                else
+                {
+                    $("#photoGrid").append("<div class=ui-block-" + tag + "><a href=\"javascript:showBigPic('" + img_array[key].bytes + "');\"><img  style=\"margin:10px;\" height=\"120\" width=\"120\" src=\"" + img_array[key].bytes + "\"></a></div>");
+                }
             }
         }
     }
@@ -338,6 +345,8 @@ function onSuccessURI(imageURI) {
     $("#imgdiv").css('background-image', 'url(' + imageURI + ')');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
+    
+    imagebyte = imageURI;
     $('#popupTakeAdditional').popup('close');
     $('#divAddDescription').show();
     $('#divAddDescriptionButtons').show();
