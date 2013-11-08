@@ -194,6 +194,26 @@ background-image: -webkit-gradient(
     border: 0px solid #cccccc !important;
 }
 
+.my-button-8th {
+    width:250px;
+    background-image: url('images/btn_secondary_wide.png') !important;
+    background-size: 100% 100% !important;
+    background-color: transparent !important;
+    color: #FFF !important;
+    text-shadow: 0 1px 0 #000000 !important;
+    border: 0px solid #cccccc !important;
+}
+
+.my-button-5th {
+    width:250px;
+    background-image: url('images/btn_negative_tall.png') !important;
+    background-size: 100% 100% !important;
+    background-color: transparent !important;
+    color: #FFF !important;
+    text-shadow: 0 1px 0 #000000 !important;
+    border: 0px solid #cccccc !important;
+}
+
 .ui-bar-a {
 	border: 1px solid #b3b3b3 /*{a-bar-border}*/;
 	background: #eeeeee /*{a-bar-background-color}*/;

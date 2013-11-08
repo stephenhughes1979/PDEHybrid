@@ -16,7 +16,7 @@ function showTermsPage() {
 }
 
 function Logout() {
-    window.localStorage.clear();
+    //window.localStorage.clear();
     $('.claimnumber').val("");
     $.mobile.changePage("#loginPage", {
         transition: "slide",
@@ -25,19 +25,17 @@ function Logout() {
     });
 }
 
-function callNativePlugin( returnSuccess ) {
-    HelloPlugin.callNativeFunction( nativePluginResultHandler, nativePluginErrorHandler, returnSuccess );
-}
-                                   
-function nativePluginResultHandler (result) {
-   alert("SUCCESS: \r\n"+result );
-}
-
-function nativePluginErrorHandler (error) {
-   alert("ERROR: \r\n"+error );
+function toHome() {
+    $.mobile.changePage("#homePage", {
+        transition: "slide",
+        reverse: true,
+        changeHash: true
+    });
 }
 
-function Login(){
+function Login() {
+    var groupid = window.localStorage.getItem("currentgroup");
+
     $.mobile.loading( 'show', {
             text: 'Loading',
             textVisible: true,
@@ -49,8 +47,8 @@ function Login(){
     var chkTermsConds = $(".chkTerms").is(':checked') ? 1 : 0;
     if ((claimnumber.trim() != "") && (chkTermsConds == 1))
     {
-        //var deviceid = device.uuid;
-        var deviceid = "454677778";
+        var deviceid = device.uuid;
+        //var deviceid = "454677778";
         window.localStorage.setItem("deviceid", deviceid);
         
         $.ajax({
@@ -124,6 +122,6 @@ function Login(){
             theme: 'z',
             html: ""
         });
-        alert("Please ensure you have entered a claim number and have accepted the terms and conditions.");
+        navigator.notification.alert('""Please ensure you have entered a claim number and have accepted the terms and conditions.""', null, 'Terms', 'Done');
     }
 }

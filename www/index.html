@@ -87,6 +87,8 @@
         <div id="lstDamageAreas"></div>
         <div id="lstPersonalProperty"></div>
         <div id="lstDocuments"></div>
+        <br>
+        <a data-role="button" class="my-button" href="javascript:UpdateClaimInfo();"><b>Finish</b></a>
    	</div>
 </div>
 
@@ -113,7 +115,7 @@
                 Add Description (optional) 
             </span>
         </div>
-        <div class=ui-grid-a style="position:relative;top:300px;">
+        <div class=ui-grid-a id="divAddDescriptionButtons" style="position:relative;top:300px;">
             <div class=ui-block-a>
                 <a data-role="button" class="my-button-3rd" href="javascript:Discard();"><span><b>Discard</b></span></a>
             </div>
@@ -143,6 +145,14 @@
         </div>
     </div>
     
+    <div data-role="popup" id="popupTakeAdditional" style="max-width:400px;width:100%;position:relative;top:150px;">
+        <div style="padding:5px">
+            <a data-role="button" class="my-button-8th" href="javascript:takeAdditionalPhotos();"><span><b>Take Additional Photo</b></span></a>
+            <br>
+            <a data-role="button" class="my-button-5th" href="javascript:finishSection();"><span><b>Finish</b></span></a>
+        </div>
+    </div>
+    
 </div>   
     
     
@@ -164,6 +174,36 @@
         </div>
 	</div>
 </div>
+    
+    
+<div id="picsGridPage" data-role="page" data-theme="b">
+    <div data-role="header" data-theme="b">
+        <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+            <a href="javascript:toHome();" data-role="button" class="my-button-3rd">Home</a>
+        </div>
+    </div>
+    <div data-role="content" data-theme="b">
+        <br>
+        <table>
+            <tr><td width="20%"> <label style="font-weight:bold;color:#FFFFFF;">Photos</label></td><td width="60%"></td>
+                <td width="20%">
+                    <a data-role="button" href="javascript:openCamera();"><img src="css/themes/images/ic_camera_msg_button.png"></a>
+                </td></tr>
+        </table>
+        <div style="background:#FFFFFF;">
+            <div class="ui-grid-a" id="photoGrid"></div>
+        </div>
+    </div>
+</div>      
+  
+<div id="bigPicPage" data-role="page" data-theme="b">
+    <div id="bigPicImgdiv" style="background-repeat:no-repeat;" data-role="content" data-theme="c"> 
+        <div id="divAddDescriptionButtons" style="position:relative;top:360px;left:200px;">
+            <a data-role="button" class="my-button-3rd" href="javascript:returnToGrid();"><span><b>Okay</b></span></a>
+        </div>
+    </div>
+</div>   
+    
     
 <script src="js/LoginView.js"></script>
 <script src="js/HomeView.js"></script>

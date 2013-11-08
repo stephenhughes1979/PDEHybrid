@@ -1,3 +1,10 @@
+function nativePluginmessageHandler (result) {
+    alert("SUCCESS: \r\n"+result );
+}
+
+function nativePluginmessageerrorHandler (error) {
+    alert("ERROR: \r\n"+error );
+}
 
 function MessagesGo() {
     $.mobile.changePage("#messagesPage", {
@@ -17,6 +24,17 @@ function onMessageSuccess(imageData) {
     var d = new Date();
     $("#lstMessages").append($.datepicker.formatDate('MM d', d) + " " + d.getHours() + ":" + d.getMinutes() + "<br><div class=\"bubble bubble--alt\"><img src=\"" + "data:image/jpeg;base64," + imageData + "\"></div><br clear=\"all\">");
     $(window).scrollTop($(document).height());
+    
+    
+    var groupid = window.localStorage.getItem("MessageAndAdditionalPhotosGroupId");
+    var deviceid = window.localStorage.getItem("deviceid");
+    var logincookie = window.localStorage.getItem("logincookie");
+    var token = window.localStorage.getItem("token");
+    var messagePhotoArray = new AssociativeArray();
+    var photo = new photoObject(imageData, 0, "Message Photo");
+    messagePhotoArray[0] = photo;
+
+    HelloPlugin.callNativeFunction(nativePluginmessageHandler, nativePluginmessageerrorHandler, groupid, deviceid,logincookie, token, messagePhotoArray);
 }
 
 function onMessageFail(message) {
