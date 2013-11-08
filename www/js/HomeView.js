@@ -247,7 +247,7 @@ function Discard() {
         reverse: true,
         changeHash: true
     });
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 50, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
         destinationType: Camera.DestinationType.DATA_URL
     });
 }
@@ -323,13 +323,13 @@ function isEven(n)
 function openCamera() {
     if(navigator.userAgent.toLowerCase().match(/iphone/))
     {
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.DATA_URL
         }); 
     }
     else
     {
-        navigator.camera.getPicture(onSuccessURI, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+        navigator.camera.getPicture(onSuccessURI, onFail, { quality: 50, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.FILE_URI
         }); 
     }
