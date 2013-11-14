@@ -15,7 +15,7 @@ function MessagesGo() {
 }
 
 function TakeMessagePhoto() {
-        navigator.camera.getPicture(onMessageSuccess, onMessageFail, { quality: 100, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+        navigator.camera.getPicture(onMessageSuccess, onMessageFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
         destinationType: Camera.DestinationType.DATA_URL
     }); 
 }
@@ -34,9 +34,7 @@ function onMessageSuccess(imageData) {
     var photo = new photoObject(imageData, 0, "Message Photo");
     messagePhotoArray[0] = photo;
 
-    //HelloPlugin.callNativeFunction(nativePluginmessageHandler, nativePluginmessageerrorHandler, groupid, deviceid,logincookie, token, messagePhotoArray);
-    navigator.notification.alert(
-    '"Photo Upload not actually executed. Please use custom plugin version of the app for that function"', null, 'Photo Upload', 'Done');
+    HelloPlugin.callNativeFunction(nativePluginmessageHandler, nativePluginmessageerrorHandler, groupid, deviceid,logincookie, token, messagePhotoArray);
 }
 
 function onMessageFail(message) {

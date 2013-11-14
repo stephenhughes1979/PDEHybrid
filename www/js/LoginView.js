@@ -1,6 +1,8 @@
+var pushNotification;
+
 function acceptTerms() {
     $('.chkTerms').prop('checked', true);
-    $.mobile.changePage("#loginPage", {
+    $.mobile.changePage("#home", {
         transition: "slide",
         reverse: true,
         changeHash: true
@@ -18,7 +20,7 @@ function showTermsPage() {
 function Logout() {
     //window.localStorage.clear();
     $('.claimnumber').val("");
-    $.mobile.changePage("#loginPage", {
+    $.mobile.changePage("#home", {
         transition: "slide",
         reverse: true,
         changeHash: true
@@ -94,6 +96,15 @@ function Login() {
                                 html: ""
                             });
                             window.localStorage.setItem("claimdata", JSON.stringify(data.Requests[0]));
+                            pushNotification = window.plugins.pushNotification;
+                            pushNotification.register(
+                                                 tokenHandler,
+                                                 errorHandler, {
+                                                 "badge":"true",
+                                                 "sound":"true",
+                                                 "alert":"true",
+                                                 "ecb":"onNotificationAPN"
+                                                 });
                             $.mobile.changePage("#homePage", {
                                 transition: "slide",
                                 reverse: true,
@@ -123,5 +134,31 @@ function Login() {
             html: ""
         });
         navigator.notification.alert('""Please ensure you have entered a claim number and have accepted the terms and conditions.""', null, 'Terms', 'Done');
+    }
+}
+
+function errorHandler (error) {
+    alert('error = ' + error);
+}
+
+function tokenHandler (result) {
+    alert('device token = ' + result);
+}
+
+function onNotificationAPN (event) {
+    if ( event.alert )
+    {
+        navigator.notification.alert(event.alert);
+    }
+    
+    if ( event.sound )
+    {
+        var snd = new Media(event.sound);
+        snd.play();
+    }
+    
+    if ( event.badge )
+    {
+        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
     }
 }

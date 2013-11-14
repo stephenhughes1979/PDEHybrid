@@ -179,11 +179,7 @@ function finishSection() {
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
-    
-    //HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, groupid, deviceid,logincookie, token, groupArray);
-    navigator.notification.alert(
-    '"Photo Upload not actually executed. Please use custom plugin version of the app for that function"', null, 'Photo Upload', 'Done');
-    
+    HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, groupid, deviceid,logincookie, token, groupArray);
     $.mobile.changePage("#homePage", {
                         transition: "slide",
                         reverse: true,
@@ -247,7 +243,7 @@ function Discard() {
         reverse: true,
         changeHash: true
     });
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 100, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
         destinationType: Camera.DestinationType.DATA_URL
     });
 }
@@ -295,14 +291,7 @@ function takePhoto(groupid) {
                     tag = "b";
                 }
       
-                if (navigator.userAgent.toLowerCase().match(/iphone/))
-                {
-                    $("#photoGrid").append("<div class=ui-block-" + tag + "><a href=\"javascript:showBigPic('" + img_array[key].bytes + "');\"><img  style=\"margin:10px;\" height=\"120\" width=\"120\" src=\"data:image/png;base64," + img_array[key].bytes + "\"></a></div>");
-                }
-                else
-                {
-                    $("#photoGrid").append("<div class=ui-block-" + tag + "><a href=\"javascript:showBigPic('" + img_array[key].bytes + "');\"><img  style=\"margin:10px;\" height=\"120\" width=\"120\" src=\"" + img_array[key].bytes + "\"></a></div>");
-                }
+                $("#photoGrid").append("<div class=ui-block-" + tag + "><a href=\"javascript:showBigPic('" + img_array[key].bytes + "');\"><img  style=\"margin:10px;\" height=\"120\" width=\"120\" src=\"data:image/png;base64," + img_array[key].bytes + "\"></a></div>");
             }
         }
     }
@@ -323,13 +312,13 @@ function isEven(n)
 function openCamera() {
     if(navigator.userAgent.toLowerCase().match(/iphone/))
     {
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 100, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.DATA_URL
         }); 
     }
     else
     {
-        navigator.camera.getPicture(onSuccessURI, onFail, { quality: 100, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
+        navigator.camera.getPicture(onSuccessURI, onFail, { quality: 10, targetWidth:320, targetHeight:480,  encodingType: Camera.EncodingType.JPEG,
             destinationType: Camera.DestinationType.FILE_URI
         }); 
     }
@@ -345,8 +334,6 @@ function onSuccessURI(imageURI) {
     $("#imgdiv").css('background-image', 'url(' + imageURI + ')');
     $("#imgdiv").css('height', '480');
     $("#imgdiv").css('width', '290');
-    
-    imagebyte = imageURI;
     $('#popupTakeAdditional').popup('close');
     $('#divAddDescription').show();
     $('#divAddDescriptionButtons').show();
@@ -388,14 +375,8 @@ function showBigPic(imageData) {
                         reverse: true,
                         changeHash: true
                         });
-    if(navigator.userAgent.toLowerCase().match(/iphone/))
-    {
-        $("#bigPicImgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
-    }
-    else
-    {
-        $("#bigPicImgdiv").css('background-image', 'url("' + imageData + '")');
-    }
+    
+    $("#bigPicImgdiv").css('background-image', 'url("data:image/jpeg;base64,' + imageData + '")');
     $("#bigPicImgdiv").css('height', '470');
     $("#bigPicImgdiv").css('width', '290');
 }
