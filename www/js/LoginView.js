@@ -96,6 +96,7 @@ function Login() {
                                 html: ""
                             });
                             window.localStorage.setItem("claimdata", JSON.stringify(data.Requests[0]));
+                            alert('trying push');
                             pushNotification = window.plugins.pushNotification;
                             pushNotification.register(
                                                  tokenHandler,
@@ -105,6 +106,7 @@ function Login() {
                                                  "alert":"true",
                                                  "ecb":"onNotificationAPN"
                                                  });
+                            alert('tried push');
                             $.mobile.changePage("#homePage", {
                                 transition: "slide",
                                 reverse: true,
