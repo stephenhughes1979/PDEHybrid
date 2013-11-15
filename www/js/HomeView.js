@@ -179,7 +179,9 @@ function finishSection() {
     var deviceid = window.localStorage.getItem("deviceid");
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
-    HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, groupid, deviceid,logincookie, token, groupArray);
+    
+    //HelloPlugin.callNativeFunction(nativePluginResultHandler, nativePluginErrorHandler, groupid, deviceid,logincookie, token, groupArray);
+    
     $.mobile.changePage("#homePage", {
                         transition: "slide",
                         reverse: true,
