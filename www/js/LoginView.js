@@ -118,14 +118,28 @@ function Login() {
                                        });
                       window.localStorage.setItem("claimdata", JSON.stringify(data.Requests[0]));
                       pushNotification = window.plugins.pushNotification;
-                      pushNotification.register(
-                                                tokenHandler,
-                                                errorHandler, {
-                                                "badge":"true",
-                                                "sound":"true",
-                                                "alert":"true",
-                                                "ecb":"onNotificationAPN"
-                                                });
+                          
+                          if ( device.platform == 'android' || device.platform == 'Android' )
+                            {
+                                pushNotification.register(
+                                    successHandler,
+                                    errorHandler, {
+                                        "senderID":"replace_with_sender_id",
+                                        "ecb":"onNotificationGCM"
+                                    });
+                            }
+                            else
+                            {
+                                pushNotification.register(
+                                    tokenHandler,
+                                    errorHandler, {
+                                        "badge":"true",
+                                        "sound":"true",
+                                        "alert":"true",
+                                        "ecb":"onNotificationAPN"
+                                    });
+                            }
+
                       $.mobile.changePage("#homePage", {
                                           transition: "slide",
                                           reverse: true,
@@ -157,6 +171,10 @@ function Login() {
         navigator.notification.alert('""Please ensure you have entered a claim number and have accepted the terms and conditions.""', null, 'Terms', 'Done');
     }
 
+}
+
+function successHandler (result) {
+    alert('result = ' + result);
 }
 
 function errorHandler (error) {
