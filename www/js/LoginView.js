@@ -71,8 +71,9 @@ function Login() {
         //var deviceid = "454677778";
         window.localStorage.setItem("deviceid", deviceid);
         
-        var pushenabled = window.localStorage.getItem("pushenabled");
-        
+        //var pushenabled = window.localStorage.getItem("pushenabled");
+        var pushenabled = "1";
+            
         $.ajax({
                type: "POST",
                cache: false,
