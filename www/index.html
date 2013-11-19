@@ -5,7 +5,8 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>  
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/HelloPlugin.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/CustomPlugin.js"></script>
+    <script type="text/javascript" charset="utf-8" src="PushNotification.js"></script>
 </head>
 <body>
     
@@ -13,7 +14,7 @@
     
 <div id="home" data-role="page" data-theme="b">
 	<div data-role="header" data-theme="b">
-		<h1>Allstate QuickFoto Claim@</h1>
+		<h1>Allstate QuickFoto Claim®</h1>
 	</div>
     <div data-role="content"> 
         Enter your claim number below<br><br>
@@ -22,7 +23,7 @@
         <br clear="all">
         <div class=ui-grid-a>
             <div style="width:10%;margin-right:10px;" class=ui-block-a>
-                <input style="position:relative;top:10px;" type="checkbox" class="chkTerms" id="chkTerms"/>
+                <input style="position:relative;top:10px;" type="checkbox" class="chkTerms"/>
             </div>
             <div style="width:80%;" class=ui-block-b>
                 I agree to the <a href='javascript:showTermsPage();'>terms and conditions, privacy statement</a>
@@ -30,7 +31,8 @@
         </div>
         
         <a data-role="button" class="my-button" href="javascript:Login();"><b>Start</b></a>
-    </div>
+        
+        </div>
     <div id="preview"></div>
 </div>
 
@@ -71,7 +73,7 @@
 	</div>
     <div data-role="content" data-theme="b"> 
         <label id="lblName" style="font-weight:bold;"></label><br>
-        Claim #: <label id="lblClaimNumber"></label>
+        Claim #: <a href="#" style="text-decoration:none;color:#FFFFFF;font-weight:normal !important;" id="lblClaimNumber">
         <div class=ui-grid-a>
             <div class=ui-block-a>
                 <a data-role="button" class="my-button-2nd" href="javascript:MessagesGo();">
@@ -210,6 +212,6 @@
 <script src="js/Messages.js"></script>
 <script src="js/spin.js"></script>
 <script src="phonegap.js"></script>  
-<script src="PushNotification.js"></script>
+    
 </body>
 </html>
