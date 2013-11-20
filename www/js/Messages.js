@@ -60,7 +60,7 @@ function AddMessage() {
     var UserEmail = window.localStorage.getItem("UserEmail");
     var longitude = window.localStorage.getItem("longitude");
     var latitude = window.localStorage.getItem("latitude");
-    alert(latitude);
+
     $.ajax({
         type: "POST",
         cache: false,
