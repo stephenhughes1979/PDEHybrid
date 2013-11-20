@@ -58,7 +58,9 @@ function AddMessage() {
     var logincookie = window.localStorage.getItem("logincookie");
     var token = window.localStorage.getItem("token");
     var UserEmail = window.localStorage.getItem("UserEmail");
-
+    var longitude = window.localStorage.getItem("longitude");
+    var latitude = window.localStorage.getItem("latitude");
+    alert(latitude);
     $.ajax({
         type: "POST",
         cache: false,
@@ -69,8 +71,8 @@ function AddMessage() {
             xhr.setRequestHeader('EstimatorDeviceId', deviceid);
             xhr.setRequestHeader('Cookie', logincookie);
             xhr.setRequestHeader('EstimatorRequestToken',token);
-            xhr.setRequestHeader('EstimatorLatitude','67.87');
-            xhr.setRequestHeader('EstimatorLongitude','74.78');
+            xhr.setRequestHeader('EstimatorLatitude',latitude);
+            xhr.setRequestHeader('EstimatorLongitude',longitude);
         },
         success: function (data) {
              $.mobile.loading( 'hide', {

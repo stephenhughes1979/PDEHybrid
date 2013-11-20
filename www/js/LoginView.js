@@ -51,9 +51,21 @@ function checkPluginErrorHandler (error) {
     window.localStorage.setItem("pushenabled", "0");
 }
 
+function onGeoSuccess(position) {
+        window.localStorage.setItem("latitude", position.coords.latitude);
+        window.localStorage.setItem("longitude", position.coords.longitude);
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onGeoError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
 function Login() {
     //CheckPlugin.checkIfPushEnabled(checkPluginResultHandler, checkPluginErrorHandler);
-    
+    navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
     var groupid = window.localStorage.getItem("currentgroup");
     
     $.mobile.loading( 'show', {
